@@ -333,7 +333,7 @@ func (s *S) TestList(c *C) {
 	c.Assert(req.Header["Date"], Not(Equals), "")
 	c.Assert(req.Form["prefix"], DeepEquals, []string{"N"})
 	c.Assert(req.Form["delimiter"], DeepEquals, []string{""})
-	c.Assert(req.Form["marker"], DeepEquals, []string{""})
+	c.Assert(req.Form["marker"], DeepEquals, []string(nil))
 	c.Assert(req.Form["max-keys"], DeepEquals, []string(nil))
 
 	c.Assert(data.Name, Equals, "quotes")

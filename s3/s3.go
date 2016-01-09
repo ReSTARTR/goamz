@@ -641,7 +641,9 @@ func (b *Bucket) List(prefix, delim, marker string, max int) (result *ListResp, 
 	params := map[string][]string{
 		"prefix":    {prefix},
 		"delimiter": {delim},
-		"marker":    {marker},
+	}
+	if marker != "" {
+		params["marker"] = []string{marker}
 	}
 	if max != 0 {
 		params["max-keys"] = []string{strconv.FormatInt(int64(max), 10)}
